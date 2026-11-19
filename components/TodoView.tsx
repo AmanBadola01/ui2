@@ -127,7 +127,7 @@ export default function TodoView() {
                   type="button"
                   onClick={() => deleteTodo(todo.id)}
                   aria-label="Delete task"
-                  className="w-9 h-9 rounded-lg bg-[#5C92FF] hover:bg-[#5087F5] text-white flex items-center justify-center transition-colors active:scale-95 shrink-0"
+                  className="w-[65px] h-[40px] rounded-lg bg-[#5C92FF] hover:bg-[#5087F5] text-white flex items-center justify-center transition-colors active:scale-95 shrink-0 cursor-pointer"
                 >
                   <TrashIcon className="w-4 h-4 text-white" />
                 </button>
@@ -157,23 +157,23 @@ export default function TodoView() {
               </div>
 
               {/* Right Action Icons: Star + Delete */}
-              <div className="flex items-center gap-4 shrink-0">
+              <div className="flex items-center gap-8 shrink-0">
                 <button
                   type="button"
                   onClick={() => toggleStar(todo.id)}
                   aria-label={todo.starred ? "Unstar task" : "Star task"}
-                  className="p-1 hover:scale-110 transition-transform"
+                  className="hover:scale-105 transition-transform cursor-pointer"
                 >
-                  <StarToggleIcon isStarred={todo.starred} className="w-5 h-5" />
+                  <StarToggleIcon isStarred={todo.starred} className="w-[26px] h-[26px]" />
                 </button>
 
                 <button
                   type="button"
                   onClick={() => deleteTodo(todo.id)}
                   aria-label="Delete task"
-                  className="p-1 hover:scale-110 transition-transform"
+                  className="hover:scale-105 transition-transform cursor-pointer"
                 >
-                  <CircleXIcon className="w-5 h-5 text-gray-300 hover:text-gray-500 transition-colors" />
+                  <CircleXIcon className="w-[30px] h-[30px]" />
                 </button>
               </div>
             </div>

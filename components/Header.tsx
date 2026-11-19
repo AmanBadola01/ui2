@@ -120,10 +120,10 @@ export default function Header({ onSearch }: HeaderProps = {}) {
   }, []);
 
   return (
-    <header className="h-18 bg-white border-b border-gray-100 px-8 flex items-center justify-between sticky top-0 z-30">
+    <header className="py-2 bg-white border-b border-gray-100 pl-[78px] pr-8 sm:pr-10 flex items-center justify-between sticky top-0 z-30">
       {/* Search Bar */}
-      <div className="relative w-96 max-w-md">
-        <div className="relative flex items-center">
+      <div className="relative w-[388px] h-[30px]">
+        <div className="relative flex items-center h-full">
           <span className="absolute left-4 text-gray-400">
             <SearchIcon className="w-4 h-4" />
           </span>
@@ -135,7 +135,7 @@ export default function Header({ onSearch }: HeaderProps = {}) {
               if (onSearch) onSearch(e.target.value);
             }}
             placeholder="Search"
-            className="w-full bg-[#F5F6FA] text-sm text-[#202224] placeholder-gray-400 pl-11 pr-4 py-2.5 rounded-full border border-gray-200/70 focus:outline-none focus:border-[#4880FF] focus:bg-white focus:ring-2 focus:ring-[#4880FF]/15 transition-all"
+            className="w-full h-full bg-[#F5F6FA] text-sm text-[#202224] placeholder-gray-400 pl-11 pr-4 rounded-full border border-gray-200/70 focus:outline-none focus:border-[#4880FF] focus:bg-white focus:ring-2 focus:ring-[#4880FF]/15 transition-all"
           />
         </div>
       </div>

@@ -59,28 +59,28 @@ export default function FavoritesView({
           {favoriteProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group"
+              className="w-full max-w-[361px] h-[497px] bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between overflow-hidden hover:shadow-md transition-shadow group"
             >
-              {/* Image Slider Area (Pure White) */}
-              <div className="relative bg-white rounded-xl py-6 px-4 flex items-center justify-center min-h-[220px] mb-4 overflow-hidden">
+              {/* Image Slider Area (width: 361, height: 317) */}
+              <div className="relative w-full h-[317px] bg-white flex items-center justify-center select-none overflow-hidden shrink-0 border-b border-gray-50">
                 {/* Left Carousel Arrow */}
                 <button
                   type="button"
                   aria-label="Previous image"
-                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200/70 text-gray-600 flex items-center justify-center shadow-xs transition-all active:scale-95"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200/70 text-gray-600 flex items-center justify-center shadow-xs transition-all active:scale-95 cursor-pointer"
                 >
-                  <ChevronLeftIcon className="w-3.5 h-3.5 text-gray-600" />
+                  <ChevronLeftIcon className="w-4 h-4 text-gray-600" />
                 </button>
 
                 {/* Product Image */}
-                <div className="relative w-40 h-44 flex items-center justify-center select-none">
+                <div className="relative w-48 h-56 flex items-center justify-center select-none">
                   <Image
                     src={product.image}
                     alt={product.name}
-                    width={250}
-                    height={276}
+                    width={280}
+                    height={300}
                     className={`max-h-full max-w-full object-contain ${
-                      product.image.includes("prod2") ? "scale-[1.45]" : ""
+                      product.image.includes("prod2") ? "scale-[1.8]" : ""
                     }`}
                     priority
                   />
@@ -90,24 +90,24 @@ export default function FavoritesView({
                 <button
                   type="button"
                   aria-label="Next image"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200/70 text-gray-600 flex items-center justify-center shadow-xs transition-all active:scale-95"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200/70 text-gray-600 flex items-center justify-center shadow-xs transition-all active:scale-95 cursor-pointer"
                 >
-                  <ChevronRightIcon className="w-3.5 h-3.5 text-gray-600" />
+                  <ChevronRightIcon className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
 
               {/* Product Meta & Actions */}
-              <div className="space-y-2.5">
+              <div className="p-5 flex-1 flex flex-col justify-between">
                 {/* Title & Heart */}
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-[#202224] tracking-tight">
+                  <h3 className="text-base font-bold text-[#202224] tracking-tight">
                     {product.name}
                   </h3>
                   <button
                     type="button"
                     onClick={() => toggleFavorite(product.id)}
                     title="Remove from favorites"
-                    className="p-1 rounded-full hover:bg-gray-50 active:scale-90 transition-all text-gray-400 hover:text-red-500"
+                    className="p-1 rounded-full hover:bg-gray-50 active:scale-90 transition-all text-gray-400 hover:text-red-500 cursor-pointer"
                   >
                     <HeartOutlineIcon
                       className="w-4 h-4 transition-colors"
@@ -134,10 +134,10 @@ export default function FavoritesView({
                 </div>
 
                 {/* Edit Button */}
-                <div className="pt-2">
+                <div className="pt-1">
                   <button
                     type="button"
-                    className="bg-[#F1F4F9] hover:bg-gray-200 text-gray-700 font-semibold text-xs py-2 px-5 rounded-lg active:scale-95 transition-all shadow-xs"
+                    className="bg-[#F1F4F9] hover:bg-gray-200 text-gray-700 font-semibold text-xs py-2 px-5 rounded-lg active:scale-95 transition-all shadow-xs cursor-pointer"
                   >
                     Edit Product
                   </button>

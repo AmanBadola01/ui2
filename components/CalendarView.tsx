@@ -293,13 +293,13 @@ export default function CalendarView() {
   const getEventBadge = (event: NonNullable<CalendarCell["event"]>) => {
     switch (event.type) {
       case "purple":
-        return "bg-[#E6DBFD] text-[#6941C6] border-l-2 border-[#7F56D9]";
+        return "bg-[#E3DCFB] text-[#7551E9] border-l-4 border-[#7551E9]";
       case "pink":
-        return "bg-[#FDE2EC] text-[#E31B54] border-l-2 border-[#F63D68]";
+        return "bg-[#FDE2EC] text-[#E31B54] border-l-4 border-[#F63D68]";
       case "orange":
-        return "bg-[#FEE4D2] text-[#B54708] border-l-2 border-[#F79009]";
+        return "bg-[#FEE4D2] text-[#B54708] border-l-4 border-[#F79009]";
       case "blue":
-        return "bg-[#DDE9FF] text-[#2970FF] border-l-2 border-[#4880FF]";
+        return "bg-[#DDE9FF] text-[#2970FF] border-l-4 border-[#4880FF]";
     }
   };
 
@@ -469,9 +469,9 @@ export default function CalendarView() {
       </div>
 
       {/* Main Container */}
-      <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
-        {/* Left Side: Upcoming Events */}
-        <aside className="w-full lg:w-72 bg-white rounded-2xl border border-gray-100 shadow-xs p-5 shrink-0 flex flex-col justify-between">
+      <div className="flex flex-col lg:flex-row gap-5 items-start w-full">
+        {/* Left Side: Upcoming Events (286px x 900px) */}
+        <aside className="w-full lg:w-[286px] lg:h-[900px] bg-white rounded-2xl border border-gray-100 shadow-xs p-6 shrink-0 flex flex-col justify-between">
           <div>
             {/* Add New Event Button */}
             <button
@@ -520,6 +520,7 @@ export default function CalendarView() {
                           src={evt.image}
                           alt={evt.title}
                           fill
+                          sizes="40px"
                           className="object-cover"
                         />
                       ) : (
@@ -551,6 +552,7 @@ export default function CalendarView() {
                                 src={av}
                                 alt="Attendee"
                                 fill
+                                sizes="20px"
                                 className="object-cover"
                               />
                             </div>
@@ -576,8 +578,8 @@ export default function CalendarView() {
           </button>
         </aside>
 
-        {/* Right Side: Interactive Calendar Grid */}
-        <section className="flex-1 bg-white rounded-2xl border border-gray-100 shadow-xs p-6 overflow-hidden min-w-0 w-full">
+        {/* Right Side: Interactive Calendar Grid (834px x 900px) */}
+        <section className="w-full lg:w-[834px] lg:h-[900px] bg-white rounded-2xl border border-gray-100 shadow-xs p-6 overflow-hidden flex flex-col justify-between shrink-0">
           {/* Top Calendar Toolbar */}
           <div className="flex items-center justify-between pb-6 border-b border-gray-100 gap-4">
             {/* Today */}
@@ -613,21 +615,28 @@ export default function CalendarView() {
             </div>
 
             {/* View Mode Switcher */}
-            <div className="flex items-center rounded-lg border border-gray-200/80 p-0.5 text-xs font-semibold">
-              {(["Day", "Week", "Month"] as const).map((mode) => (
-                <button
-                  key={mode}
-                  type="button"
-                  onClick={() => setViewMode(mode)}
-                  className={`px-3.5 py-1 rounded-md transition-colors cursor-pointer ${
-                    viewMode === mode
-                      ? "bg-[#4880FF] text-white shadow-xs"
-                      : "text-gray-500 hover:text-[#202224]"
-                  }`}
-                >
-                  {mode}
-                </button>
-              ))}
+            <div className="w-[188px] h-[40px] rounded-[10px] border border-[#D5D5D5] bg-white flex items-stretch overflow-hidden select-none shrink-0 font-['Nunito_Sans',sans-serif]">
+              {(["Day", "Week", "Month"] as const).map((mode, idx) => {
+                const isActive = viewMode === mode;
+                return (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => setViewMode(mode)}
+                    className={`flex-1 h-full flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer ${
+                      idx > 0 && !isActive && viewMode !== (["Day", "Week", "Month"] as const)[idx - 1]
+                        ? "border-l border-[#D5D5D5]"
+                        : ""
+                    } ${
+                      isActive
+                        ? "bg-[#4880FF] text-white font-bold"
+                        : "text-[#202224] hover:bg-gray-50/60"
+                    }`}
+                  >
+                    {mode}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -636,7 +645,7 @@ export default function CalendarView() {
             {weekdays.map((day) => (
               <div
                 key={day}
-                className="py-3 text-center text-xs font-bold text-gray-600 tracking-wider font-['Nunito_Sans',sans-serif]"
+                className="py-3 text-center text-sm font-bold text-[#202224] tracking-wider font-['Nunito_Sans',sans-serif]"
               >
                 {day}
               </div>
@@ -644,7 +653,7 @@ export default function CalendarView() {
           </div>
 
           {/* 7-Column Month Grid */}
-          <div className="grid grid-cols-7 border-l border-t border-gray-100 relative">
+          <div className="grid grid-cols-7 grid-rows-6 border-l border-t border-gray-100 relative flex-1">
             {calendarCells.map((cell, idx) => {
               const hasDiagonalHatch = !cell.isCurrentMonth;
               const cellEventInfo = getCellEvent(idx);
@@ -660,16 +669,16 @@ export default function CalendarView() {
                       setSelectedIdx((prev) => (prev === idx ? null : idx));
                     }
                   }}
-                  className={`min-h-[92px] sm:min-h-[105px] p-2 border-r border-b border-gray-100 relative flex flex-col justify-between ${
+                  className={`h-full min-h-[92px] sm:min-h-[105px] border-r border-b border-gray-100 relative flex flex-col justify-between ${
                     hasDiagonalHatch
                       ? "bg-[repeating-linear-gradient(-45deg,#fcfcfd,#fcfcfd_6px,#f1f3f7_6px,#f1f3f7_7px)]"
                       : "bg-white hover:bg-gray-50/50 transition-colors"
                   } ${isEventDate ? "cursor-pointer" : ""}`}
                 >
                   {/* Day Number */}
-                  <div className="flex justify-end">
+                  <div className="flex justify-end p-2 sm:p-2.5">
                     <span
-                      className={`text-xs font-bold ${
+                      className={`text-sm sm:text-base font-bold ${
                         cell.isCurrentMonth ? "text-[#202224]" : "text-gray-300"
                       }`}
                     >
@@ -677,10 +686,10 @@ export default function CalendarView() {
                     </span>
                   </div>
 
-                  {/* Event Badge (if any) */}
-                  {cell.event && (
+                  {/* Event Highlighter Box (h-[36px], flush to left and bottom grid borders) */}
+                  {cell.event ? (
                     <div
-                      className="mt-1 z-10 cursor-pointer"
+                      className="z-10 cursor-pointer w-full"
                       data-calendar-event-trigger="true"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -688,16 +697,20 @@ export default function CalendarView() {
                       }}
                     >
                       <div
-                        className={`text-[10px] font-semibold py-1 px-2 rounded-r-md truncate shadow-2xs transition-transform hover:scale-[1.02] ${getEventBadge(
+                        className={`h-[36px] flex items-center px-2.5 text-xs sm:text-[13px] font-semibold truncate transition-transform hover:scale-[1.01] ${getEventBadge(
                           cell.event
-                        )} ${cell.event.span && cell.event.span > 1 ? "w-[180%] z-20 relative" : "w-full"}`}
+                        )} ${
+                          cell.event.span && cell.event.span > 1
+                            ? "w-[calc(200%+1px)] z-20 relative"
+                            : "w-full"
+                        }`}
                       >
                         {cell.event.title}
                       </div>
                     </div>
+                  ) : (
+                    <div className="h-[36px]" />
                   )}
-
-                  <div />
                 </div>
               );
             })}

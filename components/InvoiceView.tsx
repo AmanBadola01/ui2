@@ -73,10 +73,10 @@ export default function InvoiceView() {
       {/* Main Invoice Card */}
       <div className="bg-white rounded-[24px] border border-gray-100 shadow-2xs p-8 sm:p-12 w-full">
         {/* Top Details Header */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-10 items-start">
           {/* Invoice From */}
           <div>
-            <h4 className="text-sm font-semibold text-[#606266] mb-1 font-['Nunito_Sans',sans-serif]">
+            <h4 className="text-sm font-semibold text-[#606266] mb-1.5 font-['Nunito_Sans',sans-serif]">
               Invoice From :
             </h4>
             <p className="text-sm font-bold text-[#202224] font-['Nunito_Sans',sans-serif]">
@@ -89,7 +89,7 @@ export default function InvoiceView() {
 
           {/* Invoice To */}
           <div>
-            <h4 className="text-sm font-semibold text-[#606266] mb-1 font-['Nunito_Sans',sans-serif]">
+            <h4 className="text-sm font-semibold text-[#606266] mb-1.5 font-['Nunito_Sans',sans-serif]">
               Invoice To :
             </h4>
             <p className="text-sm font-bold text-[#202224] font-['Nunito_Sans',sans-serif]">
@@ -101,11 +101,11 @@ export default function InvoiceView() {
           </div>
 
           {/* Dates */}
-          <div className="md:text-right space-y-2">
-            <p className="text-xs font-semibold text-[#202224] font-['Nunito_Sans',sans-serif]">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-[#202224] font-['Nunito_Sans',sans-serif]">
               Invoice Date : 12 Nov 2026
             </p>
-            <p className="text-xs font-semibold text-[#202224] font-['Nunito_Sans',sans-serif]">
+            <p className="text-sm font-semibold text-[#202224] font-['Nunito_Sans',sans-serif]">
               Due Date : 25 Dec 2026
             </p>
           </div>
@@ -156,19 +156,23 @@ export default function InvoiceView() {
             type="button"
             onClick={handlePrint}
             aria-label="Print Invoice"
-            className="w-11 h-11 rounded-xl bg-[#F5F6FA] hover:bg-gray-200 text-[#202224] flex items-center justify-center transition-colors cursor-pointer active:scale-95 shadow-2xs"
+            className="w-11 h-11 rounded-xl bg-[#FAFBFD] hover:bg-gray-100 text-[#202224] flex items-center justify-center transition-colors cursor-pointer active:scale-95 border border-[#D5D5D5]"
             title="Print invoice"
           >
-            <PrinterIcon className="w-5 h-5" />
+            <PrinterIcon className="w-5 h-5 text-[#202224]" />
           </button>
 
           <button
             type="button"
             onClick={handleSend}
-            className="px-7 py-2.5 bg-[#4880FF] hover:bg-blue-600 text-white font-bold text-sm rounded-xl flex items-center gap-2 shadow-sm shadow-[#4880FF]/25 transition-all active:scale-98 cursor-pointer"
+            className="w-[173px] h-[54px] bg-[#4880FF] hover:bg-[#3872F5] text-white rounded-[14px] flex items-center justify-between pl-2 pr-2 transition-all active:scale-98 shadow-sm shadow-[#4880FF]/25 cursor-pointer select-none"
           >
-            <span>Send</span>
-            <PaperAirplaneIcon className="w-4 h-4" />
+            <span className="flex-1 text-center font-bold text-base tracking-[-0.1px] font-['Nunito_Sans',sans-serif]">
+              Send
+            </span>
+            <div className="w-[46px] h-[38px] rounded-[8px] bg-white/20 flex items-center justify-center shrink-0">
+              <PaperAirplaneIcon className="w-[18px] h-[18px] text-white" />
+            </div>
           </button>
         </div>
 

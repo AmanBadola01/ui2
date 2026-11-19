@@ -206,13 +206,23 @@ export function TrendDownIcon({ className = "w-4 h-4" }: { className?: string })
   );
 }
 
-export function FilterFunnelIcon({ className = "w-4 h-4" }: { className?: string }) {
+export function FilterFunnelIcon({ className = "w-5 h-6" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg className={className} viewBox="0 0 20 24" fill="none">
+      <ellipse
+        cx="10"
+        cy="4.5"
+        rx="8.5"
+        ry="3.5"
+        stroke="#000000"
+        strokeWidth="1.5"
+      />
       <path
+        d="M1.5 4.5c0 0 5.5 8 6.5 9.5V21a2 1.5 0 004 0v-7c1-1.5 6.5-9.5 6.5-9.5"
+        stroke="#000000"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V19l-4 2v-5.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
       />
     </svg>
   );
@@ -220,11 +230,16 @@ export function FilterFunnelIcon({ className = "w-4 h-4" }: { className?: string
 
 export function ResetReloadIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+        d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 3v5h5"
       />
     </svg>
   );
@@ -302,16 +317,16 @@ export function LogoutDoorIcon({ className = "w-4 h-4" }: { className?: string }
   );
 }
 
-export function StarToggleIcon({ isStarred = false, className = "w-5 h-5" }: { isStarred?: boolean; className?: string }) {
+export function StarToggleIcon({ isStarred = false, className = "w-[26px] h-[26px]" }: { isStarred?: boolean; className?: string }) {
   if (isStarred) {
     return (
-      <svg className={className} viewBox="0 0 24 24" fill="#FFB800">
+      <svg className={className} viewBox="0 0 24 24" fill="#FFB800" stroke="#FFB800" strokeWidth={1.2}>
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
       </svg>
     );
   }
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D5D8DF" strokeWidth={1.8}>
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D5D8DF" strokeWidth={1.2}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -321,28 +336,56 @@ export function StarToggleIcon({ isStarred = false, className = "w-5 h-5" }: { i
   );
 }
 
-export function CircleXIcon({ className = "w-5 h-5" }: { className?: string }) {
+export function CircleXIcon({ className = "w-[30px] h-[30px]" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D5D8DF" strokeWidth={1.8}>
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D5D8DF" strokeWidth={1.5}>
       <circle cx="12" cy="12" r="9" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 9l-6 6m0-6l6 6" />
     </svg>
   );
 }
 
-export function PrinterIcon({ className = "w-5 h-5" }: { className?: string }) {
+export function PrinterIcon({ className = "w-5 h-5 text-[#202224]" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 14h12v7H6z" />
+    <svg className={className} viewBox="0 0 26 24" fill="none">
+      <rect x="5" y="1" width="16" height="4" rx="0.5" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 7C1.34 7 0 8.34 0 10V16C0 16.55 0.45 17 1 17H5V13C5 12.45 5.45 12 6 12H20C20.55 12 21 12.45 21 13V17H25C25.55 17 26 16.55 26 16V10C26 8.34 24.66 7 23 7H3ZM20.5 10.5C21.05 10.5 21.5 10.05 21.5 9.5C21.5 8.95 21.05 8.5 20.5 8.5C19.95 8.5 19.5 8.95 19.5 9.5C19.5 10.05 19.95 10.5 20.5 10.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M5 13H7V19H19V13H21V21C21 21.55 20.55 22 20 22H6C5.45 22 5 21.55 5 21V13Z"
+        fill="currentColor"
+      />
     </svg>
   );
 }
 
 export function PaperAirplaneIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L15 22L11 13L2 9L22 2Z" />
+    </svg>
+  );
+}
+
+export function CameraPhotoIcon({ className = "w-[26px] h-[20.8px] text-[#404040]" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 26 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.8 0.8C9.25 0.8 9.65 1.05 9.85 1.45L10.8 3.5H2.5C1.12 3.5 0 4.62 0 6V18.3C0 19.68 1.12 20.8 2.5 20.8H23.5C24.88 20.8 26 19.68 26 18.3V6C26 4.62 24.88 3.5 23.5 3.5H15.2L16.15 1.45C16.35 1.05 16.75 0.8 17.2 0.8H8.8ZM13 7C16.31 7 19 9.69 19 13C19 16.31 16.31 19 13 19C9.69 19 7 16.31 7 13C7 9.69 9.69 7 13 7Z"
+        fill="currentColor"
+      />
+      <circle cx="13" cy="13" r="3.4" fill="currentColor" />
     </svg>
   );
 }

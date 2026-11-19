@@ -84,7 +84,7 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
     const isActive = isItemActive(item);
     const isLink = Boolean(item.href && item.href !== "#");
 
-    const commonClasses = `w-full flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] ${
+    const commonClasses = `w-full h-[50px] flex items-center justify-center px-4 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] ${
       isActive
         ? "bg-[#4880FF] text-white shadow-sm"
         : item.isDestructive
@@ -93,9 +93,9 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
     }`;
 
     return (
-      <div key={item.name} className="relative">
+      <div key={item.name} className="relative w-full h-[50px] flex items-center">
         {isActive && (
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-[#4880FF] rounded-r-md" />
+          <div className="absolute -left-4 top-0 w-1.5 h-[50px] bg-[#4880FF] rounded-r-md" />
         )}
         {isLink ? (
           <Link href={item.href!} className={commonClasses}>

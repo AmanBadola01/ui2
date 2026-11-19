@@ -343,33 +343,33 @@ export default function OrderListsView() {
       {/* Filter Bar */}
       <div
         ref={filterBarRef}
-        className="inline-flex items-stretch bg-white rounded-xl border border-gray-200/80 shadow-xs divide-x divide-gray-100 flex-wrap"
+        className="w-full max-w-[818px] h-[70px] bg-white rounded-2xl border border-[#D5D5D5] divide-x divide-[#D5D5D5] flex items-center overflow-visible"
       >
         {/* Funnel Icon */}
-        <div className="px-4 py-3 flex items-center justify-center text-[#202224]">
-          <FilterFunnelIcon className="w-4 h-4 text-gray-700" />
+        <div className="w-[68px] h-full flex items-center justify-center shrink-0">
+          <FilterFunnelIcon className="w-5 h-6 shrink-0" />
         </div>
 
         {/* "Filter By" Label */}
-        <div className="px-5 py-3 flex items-center text-xs font-bold text-[#202224] select-none">
+        <div className="px-6 h-full flex items-center text-sm font-bold text-[#202224] select-none shrink-0 font-['Nunito_Sans',sans-serif]">
           Filter By
         </div>
 
         {/* Date Dropdown / Calendar Popover Trigger */}
-        <div className="relative">
+        <div className="relative h-full flex items-center">
           <button
             type="button"
             onClick={() =>
               setOpenDropdown(openDropdown === "date" ? null : "date")
             }
-            className={`h-full px-5 py-3 flex items-center gap-3 text-xs font-bold transition-colors ${
+            className={`h-full px-6 flex items-center gap-3 text-sm font-bold transition-colors font-['Nunito_Sans',sans-serif] cursor-pointer ${
               appliedDates.length > 0
                 ? "text-[#4880FF] bg-blue-50/40"
                 : "text-[#202224] hover:bg-gray-50/80"
             }`}
           >
             <span>{getDateFilterLabel()}</span>
-            <ChevronDownIcon className="w-3.5 h-3.5 text-gray-500" />
+            <ChevronDownIcon className="w-3.5 h-3.5 text-[#202224]" />
           </button>
 
           {/* Calendar Date Picker Popover */}
@@ -470,20 +470,20 @@ export default function OrderListsView() {
         </div>
 
         {/* Order Type Popover Trigger */}
-        <div className="relative">
+        <div className="relative h-full flex items-center">
           <button
             type="button"
             onClick={() =>
               setOpenDropdown(openDropdown === "type" ? null : "type")
             }
-            className={`h-full px-5 py-3 flex items-center gap-3 text-xs font-bold transition-colors ${
+            className={`h-full px-6 flex items-center gap-3 text-sm font-bold transition-colors font-['Nunito_Sans',sans-serif] cursor-pointer ${
               appliedTypes.length > 0
                 ? "text-[#4880FF] bg-blue-50/40"
                 : "text-[#202224] hover:bg-gray-50/80"
             }`}
           >
             <span>{getOrderTypeFilterLabel()}</span>
-            <ChevronDownIcon className="w-3.5 h-3.5 text-gray-500" />
+            <ChevronDownIcon className="w-3.5 h-3.5 text-[#202224]" />
           </button>
 
           {/* Select Order Type Popover */}
@@ -535,20 +535,20 @@ export default function OrderListsView() {
         </div>
 
         {/* Order Status Popover Trigger */}
-        <div className="relative">
+        <div className="relative h-full flex items-center">
           <button
             type="button"
             onClick={() =>
               setOpenDropdown(openDropdown === "status" ? null : "status")
             }
-            className={`h-full px-5 py-3 flex items-center gap-3 text-xs font-bold transition-colors ${
+            className={`h-full px-6 flex items-center gap-3 text-sm font-bold transition-colors font-['Nunito_Sans',sans-serif] cursor-pointer ${
               appliedStatuses.length > 0
                 ? "text-[#4880FF] bg-blue-50/40"
                 : "text-[#202224] hover:bg-gray-50/80"
             }`}
           >
             <span>{getOrderStatusFilterLabel()}</span>
-            <ChevronDownIcon className="w-3.5 h-3.5 text-gray-500" />
+            <ChevronDownIcon className="w-3.5 h-3.5 text-[#202224]" />
           </button>
 
           {/* Select Order Status Popover */}
@@ -600,13 +600,13 @@ export default function OrderListsView() {
         </div>
 
         {/* Reset Filter Button */}
-        <div>
+        <div className="h-full flex items-center">
           <button
             type="button"
             onClick={handleResetFilters}
-            className="h-full px-5 py-3 flex items-center gap-2 text-xs font-bold text-[#EA0234] hover:bg-red-50/50 active:scale-95 transition-all select-none"
+            className="h-full px-6 flex items-center gap-2.5 text-sm font-bold text-[#EA0234] hover:bg-red-50/50 active:scale-95 transition-all select-none cursor-pointer shrink-0 font-['Nunito_Sans',sans-serif]"
           >
-            <ResetReloadIcon className="w-3.5 h-3.5 text-[#EA0234]" />
+            <ResetReloadIcon className="w-4 h-4 text-[#EA0234]" />
             <span>Reset Filter</span>
           </button>
         </div>

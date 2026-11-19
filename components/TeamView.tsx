@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { ChevronDownIcon } from "./Icons";
+import { ChevronDownIcon, CameraPhotoIcon } from "./Icons";
 
 interface TeamMember {
   id: string;
@@ -221,7 +221,7 @@ export default function TeamView() {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="w-20 h-20 rounded-full bg-[#ECEEF2] flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity relative group cursor-pointer"
+                className="w-20 h-20 rounded-full bg-[#ECECEE] flex items-center justify-center overflow-hidden hover:opacity-90 transition-opacity relative group cursor-pointer"
                 title="Click to upload photo"
               >
                 {photoPreview ? (
@@ -232,24 +232,14 @@ export default function TeamView() {
                     className="object-cover"
                   />
                 ) : (
-                  <svg
-                    className="w-7 h-7 text-[#202224]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <CameraPhotoIcon className="w-[26px] h-[20.8px] text-[#404040]" />
                 )}
               </button>
 
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="text-xs font-semibold text-[#4880FF] hover:underline cursor-pointer mt-3"
+                className="text-sm font-semibold text-[#4880FF] hover:underline cursor-pointer mt-3 font-['Nunito_Sans',sans-serif]"
               >
                 Upload Photo
               </button>
@@ -331,11 +321,11 @@ export default function TeamView() {
                   <label className="text-xs font-semibold text-[#606266] mb-2 block font-['Nunito_Sans',sans-serif]">
                     Gender
                   </label>
-                  <div className="relative">
+                  <div className="relative w-[177px]">
                     <select
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
-                      className="w-full px-4 py-3 rounded-lg border border-transparent bg-[#F5F6FA] text-sm text-[#202224] focus:outline-none focus:border-[#4880FF] focus:bg-white transition-all appearance-none cursor-pointer font-['Nunito_Sans',sans-serif]"
+                      className="w-[177px] h-[52px] rounded-[4px] border-[0.6px] border-[#D5D5D5] bg-[#F5F6FA] px-4 text-sm text-[#202224] focus:outline-none focus:border-[#4880FF] focus:bg-white transition-all appearance-none cursor-pointer font-['Nunito_Sans',sans-serif]"
                     >
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
