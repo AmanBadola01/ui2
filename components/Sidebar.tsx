@@ -29,6 +29,27 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
       if (item.href === "/") {
         return pathname === "/";
       }
+      if (item.name === "To-Do") {
+        return pathname === "/todo" || pathname === "/to-do";
+      }
+      if (item.name === "Calender") {
+        return pathname === "/calender" || pathname === "/calendar";
+      }
+      if (item.name === "Settings") {
+        return pathname === "/settings";
+      }
+      if (item.name === "Team") {
+        return pathname === "/team";
+      }
+      if (item.name === "Table") {
+        return pathname === "/table";
+      }
+      if (item.name === "Invoice") {
+        return pathname === "/invoice";
+      }
+      if (item.name === "UI Elements") {
+        return pathname === "/ui-elements";
+      }
       return pathname === item.href || pathname.startsWith(item.href + "/");
     }
     return activeTab ? activeTab === item.name : currentTab === item.name;
@@ -38,24 +59,24 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
     { name: "Dashboard", href: "/" },
     { name: "Products", href: "/products" },
     { name: "Favorites", href: "/favorites" },
-    { name: "Inbox", href: "#" },
+    { name: "Inbox", href: "/inbox" },
     { name: "Order Lists", href: "/order-lists" },
-    { name: "Product Stock", href: "#" },
+    { name: "Product Stock", href: "/product-stock" },
   ];
 
   const pagesNavItems: NavItem[] = [
-    { name: "Pricing", href: "#" },
-    { name: "Calender", href: "#" },
-    { name: "To-Do", href: "#" },
-    { name: "Contact", href: "#" },
-    { name: "Invoice", href: "#" },
-    { name: "UI Elements", href: "#" },
-    { name: "Team", href: "#" },
-    { name: "Table", href: "#" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Calender", href: "/calender" },
+    { name: "To-Do", href: "/todo" },
+    { name: "Contact", href: "/contact" },
+    { name: "Invoice", href: "/invoice" },
+    { name: "UI Elements", href: "/ui-elements" },
+    { name: "Team", href: "/team" },
+    { name: "Table", href: "/table" },
   ];
 
   const bottomNavItems: NavItem[] = [
-    { name: "Settings", href: "#" },
+    { name: "Settings", href: "/settings" },
     { name: "Logout", href: "#", isDestructive: true },
   ];
 
@@ -63,7 +84,7 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
     const isActive = isItemActive(item);
     const isLink = Boolean(item.href && item.href !== "#");
 
-    const commonClasses = `w-full flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] ${
+    const commonClasses = `w-full flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] ${
       isActive
         ? "bg-[#4880FF] text-white shadow-sm"
         : item.isDestructive
@@ -74,7 +95,7 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
     return (
       <div key={item.name} className="relative">
         {isActive && (
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-[#4880FF] rounded-r-md" />
+          <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-[#4880FF] rounded-r-md" />
         )}
         {isLink ? (
           <Link href={item.href!} className={commonClasses}>
@@ -94,33 +115,33 @@ export default function Sidebar({ currentTab, onTabChange }: SidebarProps = {}) 
   };
 
   return (
-    <aside className="w-60 min-h-screen bg-white border-r border-gray-100 flex flex-col justify-between py-6 px-4 select-none shrink-0">
+    <aside className="w-60 h-screen bg-white border-r border-gray-100 flex flex-col justify-between py-5 px-4 select-none shrink-0 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-200">
       <div>
         {/* Brand Logo */}
-        <div className="px-4 mb-7 flex items-center">
+        <div className="px-4 mb-4 flex items-center">
           <Link href="/" className="text-2xl font-black tracking-tight text-[#202224]">
             Dash<span className="text-[#4880FF]">Stack</span>
           </Link>
         </div>
 
         {/* Main Section */}
-        <nav className="space-y-1">
+        <nav className="space-y-0.5">
           {mainNavItems.map(renderNavItem)}
         </nav>
 
         {/* PAGES Section */}
-        <div className="mt-6 pt-3 border-t border-gray-100">
-          <p className="px-4 text-[11px] font-bold tracking-wider text-gray-400 uppercase mb-2">
+        <div className="mt-4 pt-2.5 border-t border-gray-100">
+          <p className="px-4 text-[11px] font-bold tracking-wider text-gray-400 uppercase mb-1.5">
             PAGES
           </p>
-          <nav className="space-y-1">
+          <nav className="space-y-0.5">
             {pagesNavItems.map(renderNavItem)}
           </nav>
         </div>
       </div>
 
       {/* Bottom Settings & Logout Section */}
-      <div className="pt-4 border-t border-gray-100 space-y-1">
+      <div className="pt-3 mt-3 border-t border-gray-100 space-y-0.5">
         {bottomNavItems.map(renderNavItem)}
       </div>
     </aside>

@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     cpus: 1,
   },
   cacheComponents: true,
-  partialPrefetching: true,
+  partialPrefetching: false,
   turbopack: {
     rules: {
       "*.css": {
